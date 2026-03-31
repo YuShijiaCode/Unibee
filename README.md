@@ -1,89 +1,132 @@
 # Unibee Automation Test Framework
 
-这是一个面向 **Unibee** 的自动化测试仓库，目标是基于 **JavaScript + Mocha** 搭建一套统一的自动化测试框架，同时支持：
+这是一个面向 **Unibee** 的自动化测试框架，基于 **JavaScript + Mocha** 构建，同时支持：
 
-- UI 自动化测试
+- Web UI 自动化测试
 - API 自动化测试
-- 测试数据与环境配置管理
-- 持续集成场景下的自动执行与结果输出
+- Page Object 分层管理
+- 测试数据分离管理
+- 公共能力统一封装
 
-## 项目目标
-
-本项目用于为 Unibee 提供可维护、可扩展的自动化测试能力，帮助团队提升以下方面的质量保障效率：
-
-- 核心业务流程回归验证
-- 前端页面与交互行为校验
-- 后端接口正确性校验
-- 冒烟测试与回归测试执行
-- 后续 CI/CD 流水线集成
-
-## 技术栈规划
+## 技术栈
 
 - Language: JavaScript
 - Test Runner: Mocha
-- Assertion: Chai
-- UI Automation: selenium
-- API Testing: Supertest / Axios / request
-- Report: Mochawesome 或 Allure
-- Env Management: `.env` / 配置文件
+- Web UI: Selenium WebDriver
+- API: Axios
 
-## 测试范围
-
-### UI 自动化测试
-
-UI 自动化测试将聚焦于 Unibee Web 管理后台或相关业务页面，包括但不限于：
-
-- 登录与权限验证
-- 订阅/套餐管理流程
-- 支付流程相关页面操作
-- 多阶段配置页面校验
-- 表单输入、保存、状态切换与提示信息验证
-
-### API 自动化测试
-
-API 自动化测试将覆盖 Unibee 核心业务接口，包括但不限于：
-
-- 鉴权与登录接口
-- 用户、订阅、订单等核心业务接口
-- 请求参数校验
-- 响应状态码与返回结构校验
-- 正向、异常与边界场景覆盖
-
-## 推荐目录结构
+## 目录结构
 
 ```text
 .
-├── README.md
-├── package.json
-├── tests
-│   ├── ui
-│   └── api
-├── configs
-│   ├── test.env.js
-│   └── env.example
-├── utils
-├── reports
-└── artifacts
+├── API
+│   ├── TestCases
+│   │   └── auth.spec.js
+│   └── TestData
+│       └── loginPayload.json
+├── Common
+│   ├── API
+│   │   ├── apiClient.js
+│   │   └── unibeeApi.js
+│   ├── Web
+│   │   ├── basePage.js
+│   │   └── webDriver.js
+│   ├── config.js
+│   └── testDataLoader.js
+├── Web
+│   ├── PageObject
+│   │   └── LoginPage.js
+│   ├── report
+│   ├── TestCases
+│   │   └── login.spec.js
+│   └── TestData
+│       └── loginData.json
+├── mocha.api.setup.js
+├── mocha.web.setup.js
+└── package.json
 ```
 
-## 开发原则
+## 设计说明
 
-- UI 与 API 测试分层管理，便于维护
-- 测试数据与环境配置解耦
-- 公共能力沉淀到 `utils` 中复用
-- 输出清晰的执行日志、截图和测试报告
-- 为后续 GitHub Actions / CI 集成预留标准化入口
+### Web 自动化
 
-## 后续计划
+- `Web/PageObject` 用于维护页面对象
+- `Web/TestCases` 用于维护 UI 测试用例
+- `Web/TestData` 用于管理页面测试数据
+- `Web/report` 用于保存测试报告
 
-后续可以在本仓库中遐步补充以下内容：
+### API 自动化
 
-- Mocha 基础执行框架
-- UI 测试基础封装
-- API 测试请求封装
-- 测试报告集成
-- GitHub Actions 自动执行工作流
+- `API/TestCases` 用于维护 API 测试用例
+- `API/TestData` 用于管理 API 测试数据
 
-## 说明
+### Common 公共层
 
-当前仓库作为 **Unibee 自动化测试框架** 的起点，后续将围绕 `JavaScript + Mocha` 持续完善，逐步形成同时支持 UI 与 API 自动化测试的完整测试工程。
+- `Common/API` 用于封装 API 请求方法
+- `Common/Web` 用于封装 WebDriver 和页面基础能力
+- `Common/config.js` 用于集中管理基础配置
+- `Common/testDataLoader.js` 用于统一读取测试数据
+
+## 已提供的基础能力
+
+- Selenium WebDriver 工厂封装
+- BasePage 页面基类封装
+- Axios API Client 封装
+- Unibee API 示例封装
+- Web 登录示例用例
+- API 登录示例用例
+
+## 环境变量
+
+可通过环境变量覆盖默认配置：
+
+- `WEB_BASE_URL`
+- `WEB_TARGET_PATH`
+- `WEB_USERNAME`
+- `WEB_PASSWORD`
+- `API_BASE_URL`
+- `API_USERNAME`
+- `API_PASSWORD`
+- `BROWSER`
+- `SELENIUM_SERVER_URL`
+- `UI_WAIT_TIMEOUT`
+- `API_TIMEOUT`
+
+## 安装依赖
+
+```bash
+npm install
+```
+
+## 执行测试
+
+运行全部测试：
+
+```bash
+npm test
+```
+
+运行 Web UI 自动化测试：
+
+```bash
+npm run test:web
+```
+
+当前默认的 Web 示例用例已经按 Unibee 商户站点登录场景配置：
+
+- Base URL: `https://merchant.unibee.top/`
+- Target Path: `plan/new?productId=0&tab=advanced`
+
+运行 API 自动化测试：
+
+```bash
+npm run test:api
+```
+
+## 后续扩展建议
+
+- 补充更多 Page Object 页面对象
+- 为 Unibee 核心业务接口增加 API 封装
+- 增加登录态管理、截图、日志和失败重试机制
+- 引入更完整的测试报告能力
+- 对接 CI/CD 流水线执行自动化测试
