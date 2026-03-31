@@ -22,8 +22,8 @@
 - Language: JavaScript
 - Test Runner: Mocha
 - Assertion: Chai
-- UI Automation: Playwright 或 Puppeteer
-- API Testing: Supertest / Axios
+- UI Automation: selenium
+- API Testing: Supertest / Axios / request
 - Report: Mochawesome 或 Allure
 - Env Management: `.env` / 配置文件
 
