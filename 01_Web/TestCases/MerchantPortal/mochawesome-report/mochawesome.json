@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-08T07:53:50.951Z",
+    "end": "2024-08-08T07:54:13.567Z",
+    "duration": 22616,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "818252c1-1709-4b16-b007-cfeb0262d767",
+      "title": "",
+      "fullFile": "/Users/yushijia/Documents/project/AutomationForUnibee/01_Web/TestCases/MerchantPortal/01_login_merchant.js",
+      "file": "/01_login_merchant.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "34ffaa5e-0712-406f-9c15-952f72d87281",
+          "title": "case01: Login in Merchant Portal=> Success",
+          "fullFile": "/Users/yushijia/Documents/project/AutomationForUnibee/01_Web/TestCases/MerchantPortal/01_login_merchant.js",
+          "file": "/01_login_merchant.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"case01: Login in Merchant Portal=> Success\"",
+              "fullTitle": "case01: Login in Merchant Portal=> Success \"before each\" hook in \"case01: Login in Merchant Portal=> Success\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "response = null;\naddContext(this, {\n    title: 'StartTime',\n    value: {\n        StartTime: timeStamp = new Date()\n    }\n});",
+              "err": {},
+              "uuid": "1eb189c7-8396-42bf-ac5a-8d1fc3cc92f8",
+              "parentUUID": "34ffaa5e-0712-406f-9c15-952f72d87281",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"case01: Login in Merchant Portal=> Success\"",
+              "fullTitle": "case01: Login in Merchant Portal=> Success \"after each\" hook in \"case01: Login in Merchant Portal=> Success\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (response) {\n    addContext(this, {\n        title: 'Request',\n        value: {\n            Request: request\n        }\n    });\n    addContext(this, {\n        title: 'Response',\n        value: {\n            Response: response\n        }\n    });\n}\n    addContext(this, {\n        title: 'EndTime',\n        value: {\n            EndTime: timeStamp = new Date()\n        }\n    });\naddContext(this, {\n    title: 'screenshot',\n    value: {\n        EndTime: \"<a href = '01_Web/Report/Web/ScreenShot/01_Login/2024-08-08_12:07:54'/>\"\n    }\n});",
+              "err": {},
+              "uuid": "cf6e8cfd-fb5d-421a-a763-7b1dafbc0584",
+              "parentUUID": "34ffaa5e-0712-406f-9c15-952f72d87281",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC001 - Login => Success  ",
+              "fullTitle": "case01: Login in Merchant Portal=> Success TC001 - Login => Success  ",
+              "timedOut": false,
+              "duration": 17593,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"StartTime\",\n    \"value\": {\n      \"StartTime\": \"2024-08-08T07:53:50.953Z\"\n    }\n  },\n  {\n    \"title\": \"EndTime\",\n    \"value\": {\n      \"EndTime\": \"2024-08-08T07:54:08.549Z\"\n    }\n  },\n  {\n    \"title\": \"screenshot\",\n    \"value\": {\n      \"EndTime\": \"<a href = '01_Web/Report/Web/ScreenShot/01_Login/2024-08-08_12:07:54'/>\"\n    }\n  }\n]",
+              "code": "(async () => {\n    try {\n        // login \n        Driver = driver.getDriver(webdriver, 'chrome');\n        // Check Url\n        await loginPage.openMerchantUrl(Driver);\n        const currentUrl = await Driver.getCurrentUrl();\n        console.log('当前网址:', currentUrl);\n        await baseStep.waitUntilElement(Driver, loginPage.email,20000);\n        await baseStep.input(Driver,  loginPage.email, 'joshua.yu+8@wowow.io');\n        await baseStep.wait(Driver, 2000);\n        await baseStep.input(Driver,loginPage.password, 'Aa@666666');\n        await baseStep.wait(Driver, 2000);\n        await baseStep.screenShot(Driver,savaPath + '/01_login.jpeg');\n        await baseStep.click(Driver, loginPage.submitBtn);\n        await baseStep.wait(Driver, 2000);\n        await baseStep.screenShot(Driver,savaPath + '/02_Menu.jpeg');\n        await baseStep.wait(Driver, 2000);\n        done();\n    }\n    catch (e) {\n        done(e);\n    }finally {\n        await Driver.quit();\n    }\n})();",
+              "err": {},
+              "uuid": "89570abf-fce9-451a-ace9-29a203109431",
+              "parentUUID": "34ffaa5e-0712-406f-9c15-952f72d87281",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delay 5 seconds ",
+              "fullTitle": "case01: Login in Merchant Portal=> Success Delay 5 seconds ",
+              "timedOut": false,
+              "duration": 5002,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"StartTime\",\n    \"value\": {\n      \"StartTime\": \"2024-08-08T07:54:08.561Z\"\n    }\n  },\n  {\n    \"title\": \"EndTime\",\n    \"value\": {\n      \"EndTime\": \"2024-08-08T07:54:13.564Z\"\n    }\n  },\n  {\n    \"title\": \"screenshot\",\n    \"value\": {\n      \"EndTime\": \"<a href = '01_Web/Report/Web/ScreenShot/01_Login/2024-08-08_12:07:54'/>\"\n    }\n  }\n]",
+              "code": "setTimeout(() => {// TODO Need wait about syncTimeAPI second after last operation\n    done();\n}, 5000);",
+              "err": {},
+              "uuid": "e0dcf559-fa57-4cd3-95b2-d6745d2ea25d",
+              "parentUUID": "34ffaa5e-0712-406f-9c15-952f72d87281",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "89570abf-fce9-451a-ace9-29a203109431",
+            "e0dcf559-fa57-4cd3-95b2-d6745d2ea25d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22595,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 100000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

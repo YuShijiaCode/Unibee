@@ -1,0 +1,6 @@
+{
+  "STRIPE_SECRET_KEY": "xxxx",
+  "STRIPE_WEBHOOK_SECRET" : "xxxx",
+  "TEST_CARD_SUCCESS" : "xxx",
+  "TEST_CARD_FAILURE" : "xxx"
+}

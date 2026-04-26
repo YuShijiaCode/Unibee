@@ -1,0 +1,155 @@
+{
+  "err": null,
+  "response": {
+    "fromAddress": {
+      "countryCode": "US",
+      "zipCode": "92093",
+      "state": "CA",
+      "city": "La Jolla",
+      "address": "9500 Gilman Drive",
+      "verified": false
+    },
+    "toAddress": {
+      "countryCode": "US",
+      "zipCode": "90002",
+      "state": "CA",
+      "city": "Los Angeles",
+      "address": "1355 E 103rd St",
+      "verified": false
+    },
+    "nexusAddresses": [
+      {
+        "countryCode": "US",
+        "zipCode": "92093",
+        "state": "CA",
+        "city": "La Jolla",
+        "address": "9500 Gilman Drive",
+        "verified": false
+      }
+    ],
+    "totalAmount": 99900,
+    "shippingAmount": 0,
+    "customerId": "",
+    "exemptionType": "",
+    "lines": [
+      {
+        "lineId": "1",
+        "quantity": 1,
+        "taxCode": "81112200A2310",
+        "unitAmount": 99900,
+        "discountAmount": 0,
+        "taxAmount": 0
+      }
+    ],
+    "taxAmount": 0,
+    "responseRawData": {
+      "tax": {
+        "amount_to_collect": 0,
+        "breakdown": {
+          "city_tax_collectable": 0,
+          "city_tax_rate": 0,
+          "city_taxable_amount": 0,
+          "combined_tax_rate": 0,
+          "country_tax_collectable": 0,
+          "country_tax_rate": 0,
+          "country_taxable_amount": 0,
+          "county_tax_collectable": 0,
+          "county_tax_rate": 0,
+          "county_taxable_amount": 0,
+          "gst": 0,
+          "gst_tax_rate": 0,
+          "gst_taxable_amount": 0,
+          "line_items": [
+            {
+              "city_amount": 0,
+              "city_tax_rate": 0,
+              "city_taxable_amount": 0,
+              "combined_tax_rate": 0,
+              "country_tax_collectable": 0,
+              "country_tax_rate": 0,
+              "country_taxable_amount": 0,
+              "county_amount": 0,
+              "county_tax_rate": 0,
+              "county_taxable_amount": 0,
+              "gst": 0,
+              "gst_tax_rate": 0,
+              "gst_taxable_amount": 0,
+              "id": "1",
+              "pst": 0,
+              "pst_tax_rate": 0,
+              "pst_taxable_amount": 0,
+              "qst": 0,
+              "qst_tax_rate": 0,
+              "qst_taxable_amount": 0,
+              "special_district_amount": 0,
+              "special_district_taxable_amount": 0,
+              "special_tax_rate": 0,
+              "state_amount": 0,
+              "state_sales_tax_rate": 0,
+              "state_taxable_amount": 0,
+              "tax_collectable": 0,
+              "taxable_amount": 0
+            }
+          ],
+          "pst": 0,
+          "pst_tax_rate": 0,
+          "pst_taxable_amount": 0,
+          "qst": 0,
+          "qst_tax_rate": 0,
+          "qst_taxable_amount": 0,
+          "shipping": {
+            "city_amount": 0,
+            "city_tax_rate": 0,
+            "city_taxable_amount": 0,
+            "combined_tax_rate": 0,
+            "country_tax_collectable": 0,
+            "country_tax_rate": 0,
+            "country_taxable_amount": 0,
+            "county_amount": 0,
+            "county_tax_rate": 0,
+            "county_taxable_amount": 0,
+            "gst": 0,
+            "gst_tax_rate": 0,
+            "gst_taxable_amount": 0,
+            "pst": 0,
+            "pst_tax_rate": 0,
+            "pst_taxable_amount": 0,
+            "qst": 0,
+            "qst_tax_rate": 0,
+            "qst_taxable_amount": 0,
+            "special_district_amount": 0,
+            "special_tax_rate": 0,
+            "special_taxable_amount": 0,
+            "state_amount": 0,
+            "state_sales_tax_rate": 0,
+            "state_taxable_amount": 0,
+            "tax_collectable": 0,
+            "taxable_amount": 0
+          },
+          "special_district_tax_collectable": 0,
+          "special_district_taxable_amount": 0,
+          "special_tax_rate": 0,
+          "state_tax_collectable": 0,
+          "state_tax_rate": 0,
+          "state_taxable_amount": 0,
+          "tax_collectable": 0,
+          "taxable_amount": 0
+        },
+        "exemption_type": "",
+        "freight_taxable": false,
+        "has_nexus": true,
+        "jurisdictions": {
+          "city": "LOS ANGELES",
+          "country": "US",
+          "county": "LOS ANGELES COUNTY",
+          "state": "CA"
+        },
+        "order_total_amount": 999,
+        "rate": 0,
+        "shipping": 0,
+        "tax_source": "destination",
+        "taxable_amount": 0
+      }
+    }
+  }
+}
